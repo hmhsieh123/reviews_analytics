@@ -1,9 +1,5 @@
 # 每讀1000筆，印出數字
 
-import time
-tStart = time.time()
-
-time.sleep(2)
 data = []
 count = 0
 with open('reviews.txt', 'r') as f: # as f： 當作 f (file)
@@ -13,8 +9,13 @@ with open('reviews.txt', 'r') as f: # as f： 當作 f (file)
 		if count % 1000 == 0:
 			print(len(data))
 
-tEnd = time.time() #計時結束
-print("It cost %f sec" % (tEnd - tStart)) #會自動做進位
+print('檔案讀取完了，總共有', len(data), '筆資料')
+
+sum_len = 0
+for d in data:
+	sum_len = sum_len + len(d)
+
+print('留言的平均長度為', sum_len/len(data))
 
 
 
